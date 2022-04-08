@@ -1,5 +1,5 @@
 /**
- * That is a program, which is emulates functionality of the real cash machine.
+ * That is a program, which is emulates functionality of the real cash machine (with some assumptions).
  */
 
 import java.math.BigDecimal;
@@ -8,17 +8,17 @@ import java.util.Scanner;
 
 public class CashMachine {
 
-    private int idCashMachine;
+    private int id;
     private BigDecimal cashAmountTotal;
     private HashMap<String, Integer> cashBox;
 
     public void startMachine() {
         System.out.println("\nHello, dear client! This is Bank's of Top_country cash machine (ATM-"
-                + getIdCashMachine() + ").\n\nPlease, select an option:");
+                + getId() + ").\n\nPlease, select an option:");
     }
 
     public CashMachine() {
-        setIdCashMachine(generateIdCashMachine());
+        setId(generateIdCashMachine());
         cashBox = new HashMap<>();
         cashBox.put("$1", generateCash());
         cashBox.put("$5", generateCash());
@@ -39,12 +39,12 @@ public class CashMachine {
         return (int) (Math.random() * 9999) + 1;
     }
 
-    public void setIdCashMachine(int idCashMachine) {
-        this.idCashMachine = idCashMachine;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getIdCashMachine() {
-        return idCashMachine;
+    public int getId() {
+        return id;
     }
 
     public static int generateCash() {
